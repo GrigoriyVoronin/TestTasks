@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Interest_clubs/1.0.0": {
+        "runtime": {
+          "Interest_clubs.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Interest_clubs/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
