@@ -1,0 +1,11 @@
+C:\Users\molch\Desktop\ImageParser(campus)\bin\Debug\image.png
+C:\Users\molch\Desktop\ImageParser(campus)\bin\Debug\ImageParser.exe
+C:\Users\molch\Desktop\ImageParser(campus)\bin\Debug\ImageParser.pdb
+C:\Users\molch\Desktop\ImageParser(campus)\bin\Debug\Newtonsoft.Json.dll
+C:\Users\molch\Desktop\ImageParser(campus)\bin\Debug\nunit.framework.dll
+C:\Users\molch\Desktop\ImageParser(campus)\bin\Debug\Newtonsoft.Json.xml
+C:\Users\molch\Desktop\ImageParser(campus)\obj\Debug\ImageParser.csprojAssemblyReference.cache
+C:\Users\molch\Desktop\ImageParser(campus)\obj\Debug\ImageParser.csproj.CoreCompileInputs.cache
+C:\Users\molch\Desktop\ImageParser(campus)\obj\Debug\ImageParser.csproj.CopyComplete
+C:\Users\molch\Desktop\ImageParser(campus)\obj\Debug\ImageParser.exe
+C:\Users\molch\Desktop\ImageParser(campus)\obj\Debug\ImageParser.pdb

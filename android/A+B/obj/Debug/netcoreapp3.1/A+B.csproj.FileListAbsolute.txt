@@ -1,0 +1,11 @@
+C:\Users\molch\Desktop\синх\С#\android\A+B\bin\Debug\netcoreapp3.1\A+B.exe
+C:\Users\molch\Desktop\синх\С#\android\A+B\bin\Debug\netcoreapp3.1\A+B.deps.json
+C:\Users\molch\Desktop\синх\С#\android\A+B\bin\Debug\netcoreapp3.1\A+B.runtimeconfig.json
+C:\Users\molch\Desktop\синх\С#\android\A+B\bin\Debug\netcoreapp3.1\A+B.runtimeconfig.dev.json
+C:\Users\molch\Desktop\синх\С#\android\A+B\bin\Debug\netcoreapp3.1\A+B.dll
+C:\Users\molch\Desktop\синх\С#\android\A+B\bin\Debug\netcoreapp3.1\A+B.pdb
+C:\Users\molch\Desktop\синх\С#\android\A+B\obj\Debug\netcoreapp3.1\A+B.csprojAssemblyReference.cache
+C:\Users\molch\Desktop\синх\С#\android\A+B\obj\Debug\netcoreapp3.1\A+B.AssemblyInfoInputs.cache
+C:\Users\molch\Desktop\синх\С#\android\A+B\obj\Debug\netcoreapp3.1\A+B.AssemblyInfo.cs
+C:\Users\molch\Desktop\синх\С#\android\A+B\obj\Debug\netcoreapp3.1\A+B.dll
+C:\Users\molch\Desktop\синх\С#\android\A+B\obj\Debug\netcoreapp3.1\A+B.pdb

@@ -1,0 +1,11 @@
+C:\Users\molch\Desktop\синх\С#\android\Tests\bin\Debug\netcoreapp3.1\Tests.exe
+C:\Users\molch\Desktop\синх\С#\android\Tests\bin\Debug\netcoreapp3.1\Tests.deps.json
+C:\Users\molch\Desktop\синх\С#\android\Tests\bin\Debug\netcoreapp3.1\Tests.runtimeconfig.json
+C:\Users\molch\Desktop\синх\С#\android\Tests\bin\Debug\netcoreapp3.1\Tests.runtimeconfig.dev.json
+C:\Users\molch\Desktop\синх\С#\android\Tests\bin\Debug\netcoreapp3.1\Tests.dll
+C:\Users\molch\Desktop\синх\С#\android\Tests\bin\Debug\netcoreapp3.1\Tests.pdb
+C:\Users\molch\Desktop\синх\С#\android\Tests\obj\Debug\netcoreapp3.1\Tests.AssemblyInfoInputs.cache
+C:\Users\molch\Desktop\синх\С#\android\Tests\obj\Debug\netcoreapp3.1\Tests.AssemblyInfo.cs
+C:\Users\molch\Desktop\синх\С#\android\Tests\obj\Debug\netcoreapp3.1\Tests.dll
+C:\Users\molch\Desktop\синх\С#\android\Tests\obj\Debug\netcoreapp3.1\Tests.pdb
+C:\Users\molch\Desktop\синх\С#\android\Tests\obj\Debug\netcoreapp3.1\Tests.csprojAssemblyReference.cache
