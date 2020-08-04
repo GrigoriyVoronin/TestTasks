@@ -1,0 +1,53 @@
+﻿@model IEnumerable<URL>
+
+@{
+    ViewData["Title"] = "Сокращение ссылок";
+}
+
+<h1>Сервис сокращения ссылок</h1>
+
+<p>
+    <a asp-action="Create">Сократить новую ссылку</a>
+</p>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FullUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShortUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberOfTransitions)
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShortUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfTransitions)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Редактировать</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Удалить</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="NovatorTestTask.Views.Workers"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:NovatorTestTask"
+             xmlns:vIewModels="clr-namespace:NovatorTestTask.VIewModels"
+             mc:Ignorable="d">
+    <UserControl.DataContext>
+        <vIewModels:WorkersVM />
+    </UserControl.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <DataGrid AutoGenerateColumns="False" x:Name="WorkersGrid" ItemsSource="{Binding Path=Workers}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Фамиия" Binding="{Binding Path=SecondName}" Width="*" />
+                <DataGridTextColumn Header="Имя" Binding="{Binding Path=FirstName}" Width="*" />
+                <DataGridTextColumn Header="Отчество" Binding="{Binding Path=Patronymic}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel HorizontalAlignment="Center" Grid.Row="1" Orientation="Horizontal">
+            <Button x:Name="AddButton" Content="Добавить" Margin="20" Padding="5"
+                    Command="{Binding AddCommand}" />
+            <Button x:Name="DeleteButton" Content="Удалить" Margin="20" Padding="5"
+                    Command="{Binding DeleteCommand}"
+                    CommandParameter="{Binding ElementName=WorkersGrid}" />
+
+        </StackPanel>
+    </Grid>
+</UserControl>

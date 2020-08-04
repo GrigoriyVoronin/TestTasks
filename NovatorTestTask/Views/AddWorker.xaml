@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="NovatorTestTask.Views.AddWorker"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:NovatorTestTask"
+             xmlns:vIewModels="clr-namespace:NovatorTestTask.VIewModels"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <vIewModels:AddWorkerVM />
+    </UserControl.DataContext>
+    <Grid x:Name="AddGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Column="0" Grid.Row="0"
+                   FontWeight="Bold"
+                   Text="Информация о новом сотруднике"
+                   HorizontalAlignment="Center"
+                   Margin="20"
+                   Padding="5"
+                   Height="Auto" />
+        <TextBlock Grid.Column="0" Grid.Row="1"
+                   Text="Имя"
+                   FontWeight="Bold"
+                   HorizontalAlignment="Center"
+                   Margin="20"
+                   Padding="5"
+                   Height="Auto" />
+        <TextBlock Grid.Column="0" Grid.Row="2"
+                   Text="Фамилия"
+                   FontWeight="Bold"
+                   HorizontalAlignment="Center"
+                   Margin="20"
+                   Padding="5"
+                   Height="Auto" />
+        <TextBlock Grid.Column="0" Grid.Row="3"
+                   Text="Отчество"
+                   FontWeight="Bold"
+                   HorizontalAlignment="Center"
+                   Margin="20"
+                   Padding="5"
+                   Height="Auto" />
+        <TextBox Grid.Column="1" Grid.Row="1" Margin="20"
+                 Padding="5" x:Name="Name" Text="{Binding Path=Worker.FirstName}" />
+        <TextBox Grid.Column="1" Grid.Row="2" Margin="20"
+                 Padding="5" x:Name="SecondName" Text="{Binding Path=Worker.SecondName}" />
+        <TextBox Grid.Column="1" Grid.Row="3" Margin="20"
+                 Padding="5" x:Name="Patronymic" Text="{Binding Path=Worker.Patronymic}" />
+        <Button Grid.Column="1" Grid.Row="4" Margin="20"
+                Padding="5" Content="Добавить"
+                Command="{Binding AddCommand}"
+                CommandParameter="{Binding ElementName=AddGrid}" />
+    </Grid>
+</UserControl>
