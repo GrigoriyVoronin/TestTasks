@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PushTask
+namespace Push
 {
     class GenderPush : Push, IGender
     {

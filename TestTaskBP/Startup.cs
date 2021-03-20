@@ -28,12 +28,8 @@ namespace TestTaskBP
         {
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
             app.UseRewriter();
-
-
             app.UseRouting();
-
             app.UseEndpoints(endpoints =>
                 endpoints.MapControllerRoute(
                     "default",

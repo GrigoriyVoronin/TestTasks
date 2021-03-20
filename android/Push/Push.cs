@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace PushTask
+
+namespace Push
 {
     abstract class Push
     {
@@ -16,7 +15,7 @@ namespace PushTask
             PushType = type;
         }
 
-        public static Push CreateNewPush(string type, InputIntorpretator input)
+        public static Push CreateNewPush(string type, InputParser input)
         {
             switch (type)
             {

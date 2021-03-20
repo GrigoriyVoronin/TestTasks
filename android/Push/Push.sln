@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29519.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Push", "Push.csproj", "{C6772AC5-8186-4012-BF33-DFF74AFB22C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Push", "Push.csproj", "{C6772AC5-8186-4012-BF33-DFF74AFB22C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PushV1", "..\PushV1\PushV1.csproj", "{4BA6491F-6224-486A-9C7A-6159E06909AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{C6772AC5-8186-4012-BF33-DFF74AFB22C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6772AC5-8186-4012-BF33-DFF74AFB22C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6772AC5-8186-4012-BF33-DFF74AFB22C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BA6491F-6224-486A-9C7A-6159E06909AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BA6491F-6224-486A-9C7A-6159E06909AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BA6491F-6224-486A-9C7A-6159E06909AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BA6491F-6224-486A-9C7A-6159E06909AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

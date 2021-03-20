@@ -1,26 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using System.Reflection;
 
-namespace PushTask
+namespace Push
 {
-    class SystemInfo
+    public class SystemInfo
     {
-        public const int ParametrsCount = 6;
+        public int ParametersCount =>
+            GetType()
+            .GetProperties(BindingFlags.Instance | BindingFlags.GetProperty | BindingFlags.Public)
+            .Length - 1;
+        private Dictionary<string, object> _parameters
 
-        public long Time { get; private set; }
 
-        public int Age { get; private set; }
 
-        public string Gender { get; private set; }
+        public long Time { get; }
+        public int Age { get; }
+        public string Gender { get; }
+        public int OsVersion { get; }
+        public float XCoard { get; }
+        public float YCoard { get; }
 
-        public int OsVersion { get; private set; }
-
-        public float XCoard { get; private set; }
-
-        public float YCoard { get; private set; }
-
-        public SystemInfo(long time,int age, string gender,int osVersion,float xCoard, float yCoard)
+        public SystemInfo(long time, int age, string gender, int osVersion, float xCoard, float yCoard)
         {
             Time = time;
             Age = age;
@@ -28,6 +28,11 @@ namespace PushTask
             OsVersion = osVersion;
             XCoard = xCoard;
             YCoard = yCoard;
+        }
+
+        public static SystemInfo Parse()
+        {
+
         }
     }
 }
