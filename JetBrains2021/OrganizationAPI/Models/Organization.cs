@@ -8,7 +8,9 @@ namespace OrganizationApi.Models
         {
             StampsCount = stampsCount;
             Departments = departments;
-            Departments.Sort((a, b) => a.Number.CompareTo(b.Number));
+            Departments
+                .Sort((a, b) => a.Number
+                    .CompareTo(b.Number));
         }
 
         internal Organization()

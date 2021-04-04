@@ -4,13 +4,13 @@ namespace OrganizationApi.Models.Response
 {
     public class BypassSheetInfoResponse
     {
-        public BypassSheetInfoResponse(RouteStatus routeStatus, List<BypassSheet> uniqueBypassSheets)
+        public BypassSheetInfoResponse(RouteStatus routeStatus, IReadOnlyList<BypassSheet> uniqueBypassSheets)
         {
             RouteStatus = routeStatus;
             UniqueBypassSheets = uniqueBypassSheets;
         }
 
         public RouteStatus RouteStatus { get; }
-        public List<BypassSheet> UniqueBypassSheets { get; }
+        public IReadOnlyList<BypassSheet> UniqueBypassSheets { get; }
     }
 }

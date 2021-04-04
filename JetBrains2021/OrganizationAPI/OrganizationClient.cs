@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using OrganizationApi.Models;
 using OrganizationApi.Models.Response;
 using OrganizationApi.Models.Rules;
 
 namespace OrganizationApi
 {
-    public class OrganizationApiClient
+    public class OrganizationClient
     {
         private readonly Dictionary<int, List<BypassSheet>> _bypassSheetSnapshots =
             new Dictionary<int, List<BypassSheet>>();
@@ -15,39 +16,40 @@ namespace OrganizationApi
         private readonly Dictionary<int, (int CheckedCount, bool IsCycle)> _checkedBypassSheets =
             new Dictionary<int, (int, bool)>();
 
-        private bool _isSetup;
+        private bool _isCycle;
+        private bool _isSetupStarted;
+        private Task _setupTask;
 
-        public void SetupOrganization(Organization organization, Path path)
+        public async Task SetupOrganization(Organization organization, Path path)
         {
-            ValidateInputAndCalculateRoute(organization, path);
+            await ValidateInputAndCalculateRoute(organization, path);
         }
 
-        public void SetupOrganization(Action<OrganizationBuilder> orgBuilderAction)
+        public async Task SetupOrganization(Action<OrganizationBuilder> orgBuilderAction)
         {
             var orgBuilder = new OrganizationBuilder();
             orgBuilderAction(orgBuilder);
-            ValidateInputAndCalculateRoute(orgBuilder.Organization, orgBuilder.Path);
+            await ValidateInputAndCalculateRoute(orgBuilder.Organization, orgBuilder.Path);
         }
 
-        public void SetupOrganization(int stampsCount, int startDepartment, int endDepartment,
+        public async Task SetupOrganization(int stampsCount, int startDepartment, int endDepartment,
             Dictionary<int, IDepartmentRule> departments)
         {
             var path = new Path(startDepartment, endDepartment);
             var organization = new Organization(stampsCount, departments
                 .Select(x => new Department(x.Key, x.Value))
                 .ToList());
-            ValidateInputAndCalculateRoute(organization, path);
+            await ValidateInputAndCalculateRoute(organization, path);
         }
 
-        public BypassSheetInfoResponse GetSheetsInDepartment(int departmentNumber)
+        public async Task<BypassSheetInfoResponse> GetSheetsInDepartment(int departmentNumber)
         {
+            await WaitOrganizationSetup();
             var visitedCount = _bypassSheetSnapshots.GetValueOrDefault(departmentNumber)?.Count ?? 0;
             var routeStatus = visitedCount == 0
                 ? RouteStatus.Unvisited
-                : visitedCount > 1
-                    ? _checkedBypassSheets[departmentNumber].IsCycle
-                        ? RouteStatus.EndlessCycle
-                        : RouteStatus.Attended
+                : _isCycle
+                    ? RouteStatus.EndlessCycle
                     : RouteStatus.Attended;
 
             var bypassSheets = routeStatus switch
@@ -58,32 +60,39 @@ namespace OrganizationApi
             return new BypassSheetInfoResponse(routeStatus, bypassSheets);
         }
 
-        private void ValidateInputAndCalculateRoute(Organization organization, Path path)
+        private async Task ValidateInputAndCalculateRoute(Organization organization, Path path)
         {
-            CheckOrganizationSetup();
+            CheckOrganizationAlreadySetup();
             CheckInputData(organization, path);
-            CalculateRoute(organization, path);
+            _setupTask = CalculateRoute(organization, path);
+            await _setupTask;
         }
 
-        private void CalculateRoute(Organization organization, Path path)
+        private async Task CalculateRoute(Organization organization, Path path)
         {
-            var sheet = new BypassSheet(organization, path);
-            do
+            await Task.Run(() =>
             {
-                if (IsInCycle(sheet))
-                    break;
+                var sheet = new BypassSheet(organization, path);
+                do
+                {
+                    var currentDepartment = sheet.CurrentDepartmentNumber;
+                    ExecuteDepartmentRule(sheet, organization);
+                    if (currentDepartment == path.End)
+                    {
+                        TakeStampsSnapshot(currentDepartment, sheet);
+                        break;
+                    }
 
-                var currentDepartment = sheet.CurrentDepartmentNumber;
-                ExecuteDepartmentRule(sheet, organization);
-                TakeStampsSnapshot(currentDepartment, sheet);
-                if (currentDepartment == path.End)
-                    break;
-            } while (true);
+                    if (IsInCycle(sheet, currentDepartment))
+                        break;
+
+                    TakeStampsSnapshot(currentDepartment, sheet);
+                } while (true);
+            });
         }
 
-        private bool IsInCycle(BypassSheet sheet)
+        private bool IsInCycle(BypassSheet sheet, int currentNumber)
         {
-            var currentNumber = sheet.CurrentDepartmentNumber;
             if (!_bypassSheetSnapshots.ContainsKey(currentNumber))
                 return false;
 
@@ -96,9 +105,10 @@ namespace OrganizationApi
             var differentStamps = sheetSnapshot.Stamps
                 .Except(sheet.Stamps)
                 .Count();
-            if (differentStamps == 0)
+            if (differentStamps == 0 && sheetSnapshot.Stamps.Count == sheet.Stamps.Count)
             {
                 _checkedBypassSheets[currentNumber] = (checkedCount + 1, true);
+                _isCycle = true;
                 return true;
             }
 
@@ -113,21 +123,29 @@ namespace OrganizationApi
             _bypassSheetSnapshots[currentDepartment].Add(sheet.GetSnapshot());
         }
 
-        private void ExecuteDepartmentRule(BypassSheet sheet, Organization organization)
+        private static void ExecuteDepartmentRule(BypassSheet sheet, Organization organization)
         {
             organization
                 .GetDepartmentByNumber(sheet.CurrentDepartmentNumber)
                 .Rule.Execute(sheet);
         }
 
-        private void CheckOrganizationSetup()
+        private async Task WaitOrganizationSetup()
         {
-            if (_isSetup)
-                throw new ArgumentException("Organization already Setup");
-            _isSetup = true;
+            if (_setupTask == null)
+                throw new ArgumentException("You should start organization setup");
+
+            await _setupTask;
         }
 
-        private void CheckInputData(Organization organization, Path path)
+        private void CheckOrganizationAlreadySetup()
+        {
+            if (_isSetupStarted)
+                throw new ArgumentException("Organization setup already started");
+            _isSetupStarted = true;
+        }
+
+        private static void CheckInputData(Organization organization, Path path)
         {
             if (path == null)
                 throw new ArgumentNullException(nameof(Path), "You should setup Path");
