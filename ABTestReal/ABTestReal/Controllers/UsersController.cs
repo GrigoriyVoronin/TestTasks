@@ -24,13 +24,15 @@ namespace ABTestReal.Controllers
         [HttpGet]
         public async Task<ActionResult<List<User>>> GetUsers()
         {
-            return Ok(await _usersService.GetUsersAsync());
+            var users = await _usersService.GetUsersAsync();
+            return Ok(users);
         }
 
         [HttpPost]
         public async Task<ActionResult<List<User>>> UpdateUsers([FromBody] List<User> users)
         {
-            return Accepted(await _usersService.UpdateUsersAsync(users));
+            var updatedUsers = await _usersService.UpdateUsersAsync(users);
+            return Accepted(updatedUsers);
         }
     }
 }

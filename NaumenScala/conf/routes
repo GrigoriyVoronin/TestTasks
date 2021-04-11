@@ -1,0 +1,10 @@
+POST    /numberOfPlaces        controllers.ShipController.setupFactorySize()
+POST    /ship                  controllers.ShipController.addShip()
+GET     /next                  controllers.ShipController.nextShipRepairTime()
+
+GET     /*address              controllers.ShipController.methodNotFound(address)
+PATCH   /*address              controllers.ShipController.methodNotFound(address)
+POST    /*address              controllers.ShipController.methodNotFound(address)
+PUT     /*address              controllers.ShipController.methodNotFound(address)
+DELETE  /*address              controllers.ShipController.methodNotFound(address)
+HEAD    /*address              controllers.ShipController.methodNotFound(address)
