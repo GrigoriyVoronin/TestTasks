@@ -4,7 +4,6 @@ import javax.inject._
 import play.api.mvc._
 import services._
 import models._
-import play.api.Logger
 
 
 @Singleton
@@ -37,7 +36,6 @@ class ShipController @Inject()(cc : ControllerComponents, shipsFactoryService : 
   }
 
   def nextShipRepairTime() = Action { request: Request[AnyContent] =>
-
       val startTime = shipsFactoryService.nextRepairStartTime()
       if (startTime == null){
         Ok("")

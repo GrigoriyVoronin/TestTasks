@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace TestTaskBP.Migrations
+namespace VoroninTestTask.Migrations
 {
     public partial class InitCreate : Migration
     {

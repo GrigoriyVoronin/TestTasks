@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "TestTaskBP": {
+    "VoroninTestTask": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {

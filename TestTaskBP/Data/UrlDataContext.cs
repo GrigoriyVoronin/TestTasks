@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TestTaskBP.Models;
+using VoroninTestTask.Models;
 
-namespace TestTaskBP.Data
+namespace VoroninTestTask.Data
 {
     public sealed class UrlDataContext : DbContext
     {

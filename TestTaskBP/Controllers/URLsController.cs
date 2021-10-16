@@ -1,27 +1,36 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using HashidsNet;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using TestTaskBP.Data;
-using TestTaskBP.Models;
+using Microsoft.Extensions.Configuration;
+using VoroninTestTask.Data;
+using VoroninTestTask.Models;
 
-namespace TestTaskBP.Controllers
+namespace VoroninTestTask.Controllers
 {
     public class URLsController : Controller
     {
         private readonly UrlDataContext dataContext;
+        private readonly IConfiguration configuration;
 
-        public URLsController(UrlDataContext dataContext)
+        public URLsController(UrlDataContext dataContext, IConfiguration configuration)
         {
             this.dataContext = dataContext;
+            this.configuration = configuration;
         }
 
-        public async Task<IActionResult> Index() =>
-            View(await dataContext.Urls
+        public async Task<IActionResult> Index()
+        {
+            return View(await dataContext.Urls
                 .ToListAsync());
+        }
 
-        public IActionResult Create() => View();
+        public IActionResult Create()
+        {
+            return View();
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -43,7 +52,7 @@ namespace TestTaskBP.Controllers
 
             var hashids = new Hashids($"{url.FullUrl}");
             var id = hashids.Encode(1, 2, 3, 4, 5);
-            url.ShortUrl = "https://voronintask.ru/go?id=" + id;
+            url.ShortUrl = $"{configuration.GetSection("host").Value}/go?id=" + id;
             dataContext.Add(url);
             await dataContext.SaveChangesAsync();
 

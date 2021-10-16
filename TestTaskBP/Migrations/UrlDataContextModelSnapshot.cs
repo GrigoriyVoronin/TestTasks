@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using TestTaskBP.Data;
+using VoroninTestTask.Data;
 
-namespace TestTaskBP.Migrations
+namespace VoroninTestTask.Migrations
 {
     [DbContext(typeof(UrlDataContext))]
     partial class UrlDataContextModelSnapshot : ModelSnapshot
@@ -19,7 +19,7 @@ namespace TestTaskBP.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("TestTaskBP.Models.URL", b =>
+            modelBuilder.Entity("VoroninTestTask.Models.URL", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()

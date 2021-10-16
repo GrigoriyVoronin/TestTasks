@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace TestTaskBP.Migrations
+namespace VoroninTestTask.Migrations
 {
     public partial class UpdateAnatation1 : Migration
     {

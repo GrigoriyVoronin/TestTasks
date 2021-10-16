@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using TestTaskBP.Data;
+using VoroninTestTask.Data;
 
-namespace TestTaskBP.Migrations
+namespace VoroninTestTask.Migrations
 {
     [DbContext(typeof(UrlDataContext))]
     [Migration("20200723203513_UpdateAnatation1")]
@@ -21,7 +21,7 @@ namespace TestTaskBP.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("TestTaskBP.Models.URL", b =>
+            modelBuilder.Entity("VoroninTestTask.Models.URL", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
