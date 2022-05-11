@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SberFight2022", "SberFight2022\SberFight2022.csproj", "{864ECB0B-E37F-419D-90D6-5281AF32FD0D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{864ECB0B-E37F-419D-90D6-5281AF32FD0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{864ECB0B-E37F-419D-90D6-5281AF32FD0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{864ECB0B-E37F-419D-90D6-5281AF32FD0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{864ECB0B-E37F-419D-90D6-5281AF32FD0D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E8751FA4-D2DF-48A0-AA18-B22FEA381C4F}
+	EndGlobalSection
+EndGlobal

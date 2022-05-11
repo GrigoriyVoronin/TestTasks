@@ -1,8 +1,0 @@
-C:\Users\molch\Desktop\2\bin\Debug\GitTask.exe
-C:\Users\molch\Desktop\2\bin\Debug\GitTask.pdb
-C:\Users\molch\Desktop\2\bin\Debug\nunit.framework.dll
-C:\Users\molch\Desktop\2\obj\Debug\GitTask.csprojAssemblyReference.cache
-C:\Users\molch\Desktop\2\obj\Debug\GitTask.csproj.CoreCompileInputs.cache
-C:\Users\molch\Desktop\2\obj\Debug\GitTask.csproj.CopyComplete
-C:\Users\molch\Desktop\2\obj\Debug\GitTask.exe
-C:\Users\molch\Desktop\2\obj\Debug\GitTask.pdb

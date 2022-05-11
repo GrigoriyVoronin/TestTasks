@@ -33,8 +33,7 @@ namespace VoroninTestTask.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,FullUrl,ShortUrl,CreateDate,NumberOfTransitions")]
-            URL url)
+        public async Task<IActionResult> Create([Bind("ID,FullUrl,ShortUrl,CreateDate,NumberOfTransitions")] URL url)
         {
             if (ModelState.IsValid && await AddUrlToDb(url))
                 return RedirectToAction(nameof(Index));
@@ -72,8 +71,7 @@ namespace VoroninTestTask.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,FullUrl,ShortUrl,CreateDate,NumberOfTransitions")]
-            URL url)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,FullUrl,ShortUrl,CreateDate,NumberOfTransitions")] URL url)
         {
             if (id != url.ID)
                 return NotFound();
